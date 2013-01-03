@@ -15,6 +15,16 @@
               <nav>
                 <ul class="nav pull-right">
                     <li><%= link_to "About", about_path  %></li>
+<!-- going to add some code to show 'sign in' or 'sign out' as appropriate using an if/else -->	
+<!-- to indicate that we are coding in Ruby instead of HTML use %=...% or %...%  the difference is that if there is an = then it indicates that it is something that will show up on the page -->				
+					<% if user_signed_in?  %>
+					<li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete  %></li>
+<!-- default method was 'GET', from 'rake routes' in Terminal I saw that this path needs method 'delete' -->
+					<% else %>
+					<li><%= link_to "Sign In", new_user_session_path, :method => :get %>
+<!-- don't have to include method here since get is default -->
+					<% end %>
+					
                 </ul>
               </nav>
             </div>

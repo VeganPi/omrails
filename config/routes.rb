@@ -1,5 +1,10 @@
 Omrails::Application.routes.draw do
     
+  devise_for :users
+  #devise added devise_for :users for us when we installed it; we need a
+  #route that will let users sign up that we can put in the home.html.erb file
+  
+
   root :to => 'static_pages#home'  
   get "about" => "static_pages#about"
 
